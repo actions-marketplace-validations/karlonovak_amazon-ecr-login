@@ -1,8 +1,8 @@
-name: 'Amazon ECR "Login" Action for GitHub Actions'
-description: 'Logs in the local Docker client to one or more Amazon ECR Private registries or an Amazon ECR Public registry'
+name: 'Amazon ECR "Login" Action for GitHub Actions using node16'
+description: "Logs in the local Docker client to one or more Amazon ECR Private registries or an Amazon ECR Public registry"
 branding:
-  icon: 'cloud'
-  color: 'orange'
+  icon: "cloud"
+  color: "orange"
 inputs:
   registries:
     description: >-
@@ -16,19 +16,19 @@ inputs:
       Exists for backward compatibility on self-hosted runners.
       Not recommended.
     required: false
-    default: 'false'
+    default: "false"
   registry-type:
     description: >-
       Which ECR registry type to log into.
       Options: 'private', 'public'
     required: false
-    default: 'private'
+    default: "private"
 outputs:
   registry:
     description: >-
       The URI of the ECR Private or ECR Public registry.
       If logging into multiple registries on ECR Private, this output will not be set.
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
-  post: 'dist/cleanup/index.js'
+  using: "node16"
+  main: "dist/index.js"
+  post: "dist/cleanup/index.js"
